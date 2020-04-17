@@ -13,25 +13,25 @@ fi
 
 if [ -n "$2" ]
 then
-    url=$2
+    note=$2
 else
-    read -p "Enter the url: " url
+    read -p "Enter the note: " note
 fi
 
-# create url file
+# create note file
 filename="$shorty.md"
 touch $filename
 echo "---" >> $filename
-echo "url: ${url}" >> $filename
+echo "note: ${note}" >> $filename
 echo "---" >> $filename
 echo "" >> $filename
 
 # edit file
-#vi $filename
+vi $filename
 
 # commit and publish
 git add $filename
-git commit -m "new 1y: $site/$shorty -> $url"
+git commit -m "new 1y note: $site/$shorty -> $note"
 git push -u origin master
 
 
